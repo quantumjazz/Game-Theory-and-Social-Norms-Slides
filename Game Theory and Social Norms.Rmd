@@ -135,7 +135,13 @@ Douglass C. North, Institutions, Institutional Change and Economic Performance, 
 
 ---
 
-# Hello World
+class: inverse, center, middle
+
+# We can ask the same question: how does trust relate to economic outcomes?
+
+---
+
+## Hello World
 
 Download **data** from [Github](https://github.com/quantumjazz/Game-Theory-and-Social-Norms-Slides/blob/master/data/trust_score_ranking.xlsx) or copy and paste the following link:
 
@@ -149,6 +155,75 @@ https://github.com/quantumjazz/Game-Theory-and-Social-Norms
 You are recommended to use the [RStudio IDE](https://www.rstudio.com/products/rstudio/), but you do not have to.
 
 - Just use **Excel** instead. A quick and dirty regression is all we need.
+
+---
+
+## The data
+
+
+```{r trust, echo = TRUE}
+head(trust)
+```
+
+--
+
+The [trust](https://globaltrustresearch.files.wordpress.com/2018/08/trust_score_ranking.xlsx) data (Bekkers, R. & Sandberg, B., Grading Generalized Trust Across Europe, 2019)  contains historical average for all countries in the dataset for the period 1953-2018. 
+
+The [GDP](https://data.worldbank.org/indicator/NY.GDP.MKTP.CD) contains historical average GDP per capita (current US$, 1960 - 2020) from the World Bank Databank.
+
+**petrol** is a dummy variable; you can decide to use it ot not.
+
+---
+## Plot the data
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  fig.asp = 9/16,
+  fig.align = 'center',
+  echo = F,
+  out.width = "95%",
+  dpi= 300
+)
+library(ggplot2)
+```
+
+```{r}
+ggplot(data = trust, mapping = aes(trust, gdp))+
+  geom_point()
+```
+
+--
+
+The data looks rather messy (as happens often in the real world) but we can see a linear relationship between trust and gdp per capita.
+
+---
+
+## The regression
+
+We are regressing trust on both gdp and petrol; these are the results:
+
+```{r comment='#'}
+# a boring regression
+fit = lm(trust ~ gdp + petrol, data = trust)
+summary(fit)
+
+```
+
+
+---
+
+## Discussion
+
+**petrol** is not significant, but otherwise the results look good. 
+
+--
+
+We have an R-squared of .25; is this large or small?
+
+--
+
+What are the other determinants of gdp (wealth, prosperity)?
 
 ---
 

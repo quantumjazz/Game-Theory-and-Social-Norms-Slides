@@ -142,7 +142,13 @@ Douglass C. North, Institutions, Institutional Change and Economic Performance, 
 
 ---
 
-# Hello World
+class: inverse, center, middle
+
+# We can ask the same question: how does trust relate to economic outcomes?
+
+---
+
+## Hello World
 
 Download **data** from [Github](https://github.com/quantumjazz/Game-Theory-and-Social-Norms-Slides/blob/master/data/trust_score_ranking.xlsx) or copy and paste the following link:
 
@@ -157,6 +163,92 @@ https://github.com/quantumjazz/Game-Theory-and-Social-Norms
 You are recommended to use the [RStudio IDE](https://www.rstudio.com/products/rstudio/), but you do not have to.
 
 - Just use **Excel** instead. A quick and dirty regression is all we need.
+
+---
+
+## The data
+
+
+
+```r
+head(trust)
+```
+
+```
+## # A tibble: 6 x 5
+##    rank country     trust petrol    gdp
+##   &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+## 1     1 Finland      59.4      0 21894.
+## 2     2 China        58.4      0  1782.
+## 3     3 Sweden       58.1      0 26149.
+## 4     4 Norway       57.2      0 35020.
+## 5     5 Netherlands  56.0      0 23136.
+## 6     6 Burundi      54.7      0   165.
+```
+
+--
+
+The [trust](https://globaltrustresearch.files.wordpress.com/2018/08/trust_score_ranking.xlsx) data (Bekkers, R. &amp; Sandberg, B., Grading Generalized Trust Across Europe, 2019)  contains historical average for all countries in the dataset for the period 1953-2018. 
+
+The [GDP](https://data.worldbank.org/indicator/NY.GDP.MKTP.CD) contains historical average GDP per capita (current US$, 1960 - 2020) from the World Bank Databank.
+
+**petrol** is a dummy variable; you can decide to use it ot not.
+
+---
+## Plot the data
+
+
+
+
+&lt;img src="Game-Theory-and-Social-Norms_files/figure-html/unnamed-chunk-2-1.png" width="95%" style="display: block; margin: auto;" /&gt;
+
+--
+
+The data looks rather messy (as happens often in the real world) but we can see a linear relationship between trust and gdp per capita.
+
+---
+
+## The regression
+
+We are regressing trust on both gdp and petrol; these are the results:
+
+
+```
+# 
+# Call:
+# lm(formula = trust ~ gdp + petrol, data = trust)
+# 
+# Residuals:
+#     Min      1Q  Median      3Q     Max 
+# -32.112  -7.013  -0.156   6.301  34.295 
+# 
+# Coefficients:
+#              Estimate Std. Error t value Pr(&gt;|t|)    
+# (Intercept) 2.288e+01  1.156e+00  19.793  &lt; 2e-16 ***
+# gdp         6.639e-04  9.648e-05   6.881 1.63e-10 ***
+# petrol      3.638e+00  3.277e+00   1.110    0.269    
+# ---
+# Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+# 
+# Residual standard error: 10.86 on 146 degrees of freedom
+# Multiple R-squared:  0.2549,	Adjusted R-squared:  0.2447 
+# F-statistic: 24.97 on 2 and 146 DF,  p-value: 4.701e-10
+```
+
+
+---
+
+## Discussion
+
+**petrol** is not significant, but otherwise the results look good. 
+
+--
+
+We have an R-squared of .25; is this large or small?
+
+--
+
+What are the other determinants of gdp (wealth, prosperity)?
 
 ---
 
