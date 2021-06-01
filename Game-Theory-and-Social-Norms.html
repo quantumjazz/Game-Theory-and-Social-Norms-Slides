@@ -176,14 +176,14 @@ head(trust)
 
 ```
 ## # A tibble: 6 x 5
-##    rank country     trust petrol    gdp
-##   &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
-## 1     1 Finland      59.4      0 21894.
-## 2     2 China        58.4      0  1782.
-## 3     3 Sweden       58.1      0 26149.
-## 4     4 Norway       57.2      0 35020.
-## 5     5 Netherlands  56.0      0 23136.
-## 6     6 Burundi      54.7      0   165.
+##    rank country     trust   oil    gdp
+##   &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;
+## 1     1 Finland      59.4     0 21894.
+## 2     2 China        58.4     0  1782.
+## 3     3 Sweden       58.1     0 26149.
+## 4     4 Norway       57.2     0 35020.
+## 5     5 Netherlands  56.0     0 23136.
+## 6     6 Burundi      54.7     0   165.
 ```
 
 --
@@ -210,13 +210,13 @@ The data looks rather messy (as happens often in the real world) but we can see 
 
 ## The regression
 
-We are regressing trust on both gdp and petrol; these are the results:
+We are regressing trust on both gdp and oil; these are the results:
 
 
 ```
 # 
 # Call:
-# lm(formula = trust ~ gdp + petrol, data = trust)
+# lm(formula = trust ~ gdp + oil, data = trust)
 # 
 # Residuals:
 #     Min      1Q  Median      3Q     Max 
@@ -226,7 +226,7 @@ We are regressing trust on both gdp and petrol; these are the results:
 #              Estimate Std. Error t value Pr(&gt;|t|)    
 # (Intercept) 2.288e+01  1.156e+00  19.793  &lt; 2e-16 ***
 # gdp         6.639e-04  9.648e-05   6.881 1.63e-10 ***
-# petrol      3.638e+00  3.277e+00   1.110    0.269    
+# oil         3.638e+00  3.277e+00   1.110    0.269    
 # ---
 # Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 # 
@@ -240,7 +240,7 @@ We are regressing trust on both gdp and petrol; these are the results:
 
 ## Discussion
 
-**petrol** is not significant, but otherwise the results look good. 
+**oil** is not significant, but otherwise the results look good. 
 
 --
 

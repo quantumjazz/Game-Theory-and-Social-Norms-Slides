@@ -201,11 +201,11 @@ The data looks rather messy (as happens often in the real world) but we can see 
 
 ## The regression
 
-We are regressing trust on both gdp and petrol; these are the results:
+We are regressing trust on both gdp and oil; these are the results:
 
 ```{r comment='#'}
 # a boring regression
-fit = lm(trust ~ gdp + petrol, data = trust)
+fit = lm(trust ~ gdp + oil, data = trust)
 summary(fit)
 
 ```
@@ -215,7 +215,7 @@ summary(fit)
 
 ## Discussion
 
-**petrol** is not significant, but otherwise the results look good. 
+**oil** is not significant, but otherwise the results look good. 
 
 --
 
