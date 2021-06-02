@@ -216,23 +216,23 @@ We are regressing trust on both gdp and oil; these are the results:
 ```
 # 
 # Call:
-# lm(formula = trust ~ gdp + oil, data = trust)
+# lm(formula = gdp ~ trust + oil, data = trust)
 # 
 # Residuals:
-#     Min      1Q  Median      3Q     Max 
-# -32.112  -7.013  -0.156   6.301  34.295 
+#    Min     1Q Median     3Q    Max 
+# -16991  -4715  -1408   2958  32507 
 # 
 # Coefficients:
-#              Estimate Std. Error t value Pr(&gt;|t|)    
-# (Intercept) 2.288e+01  1.156e+00  19.793  &lt; 2e-16 ***
-# gdp         6.639e-04  9.648e-05   6.881 1.63e-10 ***
-# oil         3.638e+00  3.277e+00   1.110    0.269    
+#             Estimate Std. Error t value Pr(&gt;|t|)    
+# (Intercept) -3040.10    1634.78  -1.860   0.0649 .  
+# trust         368.88      53.61   6.881 1.63e-10 ***
+# oil           510.80    2452.94   0.208   0.8353    
 # ---
 # Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 # 
-# Residual standard error: 10.86 on 146 degrees of freedom
-# Multiple R-squared:  0.2549,	Adjusted R-squared:  0.2447 
-# F-statistic: 24.97 on 2 and 146 DF,  p-value: 4.701e-10
+# Residual standard error: 8094 on 146 degrees of freedom
+# Multiple R-squared:  0.2488,	Adjusted R-squared:  0.2385 
+# F-statistic: 24.18 on 2 and 146 DF,  p-value: 8.498e-10
 ```
 
 

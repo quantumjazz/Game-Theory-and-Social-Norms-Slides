@@ -205,7 +205,7 @@ We are regressing trust on both gdp and oil; these are the results:
 
 ```{r comment='#'}
 # a boring regression
-fit = lm(trust ~ gdp + oil, data = trust)
+fit = lm(gdp ~ trust + oil, data = trust)
 summary(fit)
 
 ```
